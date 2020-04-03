@@ -1,16 +1,17 @@
-const {Pool} = require('pg');
+var {Pool} =require('pg'); 
+pool = new Pool({
+    host: 'localhost',
+    user: 'postgres',
+    password: 'postgres',
+    database: 'portal_noticias',
+    port:'5432'
+    });
+    
+pool.connect();
 
-var conectBD = function(){
-    console.log('Conexao com o bd foi estabelecida');
-    var pool = new Pool({
-        host: 'localhost',
-        user: 'postgres',
-        password: 'postgres',
-        database: 'portal_noticias',
-        port:'5432'
-        });
-    pool.connect();    
-    return pool;
+var conectBD = function (){
+    console.log('Conexao com o bd foi estabelecida');               
+            return pool;      
 }
 
 module.exports = function(){
